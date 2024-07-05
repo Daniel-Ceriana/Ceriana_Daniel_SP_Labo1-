@@ -6,6 +6,12 @@ pygame.init()
 ANCHO_VENTANA = 1280
 ALTO_VENTANA = 720
 
+
+pygame.mixer.init()
+sonido_fondo =  pygame.mixer.Sound("cancion2.mp3")
+volumen = 0.05
+sonido_fondo.set_volume(volumen)
+
 #crear una fuente
 dict_fuentes={
     "fuente" : pygame.font.SysFont("Arial",30),
@@ -155,6 +161,7 @@ pygame.display.set_caption("Carrera UTN")
 
 flag_correr = True
 while flag_correr:
+    sonido_fondo.play()
     lista_eventos = pygame.event.get()
     for evento in lista_eventos:
         if evento.type == pygame.QUIT:
